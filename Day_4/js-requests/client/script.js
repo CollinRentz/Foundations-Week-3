@@ -9,7 +9,7 @@
     Use querySelector to select that button and save it to a variable called sayHelloButton
 */
 
-// CODE HERE
+let sayHelloButton = document.querySelector('#say-hello-button');
 
 
 // PROBLEM 2
@@ -19,7 +19,9 @@
     Attach a mouseover event to sayHelloButton that calls the function you wrote
 */
 
-// CODE HERE
+sayHelloButton.addEventListener('mouseover', () => {
+    sayHelloButton.style.backgroundColor = 'black';
+    sayHelloButton.style.color = 'white';
 
 
 // PROBLEM 3
@@ -31,7 +33,11 @@
     Attach another listener that fires your second function when the mouseout event occurs on the button
 */
 
-// CODE HERE
+sayHelloButton.addEventListener('mouseout', () => {
+    sayHelloButton.style.backgroundColor = '#EFEFEF';
+    sayHelloButton.style.color = 'black';
+})
+
 
 
 // PROBLEM 4
@@ -52,7 +58,7 @@ const sayHello = () => {
 }
 // DO NOT EDIT FUNCTION
 
-// CODE HERE
+sayHelloButton.addEventListener('click', sayHello);
 
 
 // PROBLEM 5 
@@ -67,7 +73,11 @@ const sayHello = () => {
 */ 
 
 const ohMy = () => {
-    // YOUR CODE HERE
+    return axios.get('http://localhost:3000/animals')
+.then(res => {
+    return res.data
+})
+
 }
 
 document.getElementById('animals-button').addEventListener('click', ohMy)
@@ -87,7 +97,8 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 */
 
 const repeatMyParam = () => {
-    //YOUR CODE HERE
+    return axios.get('http://localhost:3000/repeat/I-Love-Coding')
+.then(res => res.data)
 }
 
 // PROBLEM 7
@@ -99,7 +110,9 @@ const repeatMyParam = () => {
     After setting the textContent, use the style method to change display to 'block'
 */
 
-// Code in the repeatMyParam function above
+let repeatEl = document.getElementById('repeat-text');
+repeatEl.textContent = res.data;
+repeatEl.style.display = 'block';
 
 
 
@@ -112,8 +125,8 @@ const repeatMyParam = () => {
     Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
 */
 
-// CODE HERE
-
+axios.get('http://localhost:3000/repeat?myquery=a-really-awesome-query&anotherOne=DJ-Khalid')
+.then(({ data }) => console.log(data))
 
 
 ////////////////
@@ -165,4 +178,4 @@ const repeatMyParam = () => {
     Based on what we did earlier to display this type of data, write code that will display the response in your HTML document. 
 */
 
-// CODE HERE 
+// CODE HERE
