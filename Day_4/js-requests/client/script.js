@@ -77,10 +77,9 @@ const ohMy = () => {
 .then(res => {
     return res.data
 })
-
 }
 
-document.getElementById('animals-button').addEventListener('click', ohMy)
+document.getElementById('animals-button').addEventListener('click', ohMy);
 
 
 // PROBLEM 6 
@@ -178,4 +177,3 @@ axios.get('http://localhost:3000/repeat?myquery=a-really-awesome-query&anotherOn
     Based on what we did earlier to display this type of data, write code that will display the response in your HTML document. 
 */
 
-// CODE HERE
